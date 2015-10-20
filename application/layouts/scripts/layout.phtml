@@ -1,0 +1,21 @@
+<?php
+echo $this->doctype();
+?>
+
+<html lang="fr">
+    <head>
+        
+
+        <?php
+        echo $this->headTitle("jTable test")
+        . $this->jQuery()->enable()->uienable()
+        . $this->headMeta() . $this->headLink();
+        ?>
+        <?php echo $this->headScript(); ?>
+    </head>
+    <body>
+
+        <?php echo $this->layout()->content; ?>
+
+    </body>
+</html>

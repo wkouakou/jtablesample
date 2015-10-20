@@ -1,0 +1,41 @@
+<div id="PeopleTableContainer" style="width: 600px; border: solid 1px #008b00;"></div>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        //Prepare jTable
+        $('#PeopleTableContainer').jtable({
+            title: 'Gestion des utilisateurs',
+            paging: true,
+            pageSize: 10,
+            sorting: true,
+            defaultSorting: 'nom ASC',
+            actions: {
+                listAction: '<?php echo $this->baseUrl("index/nouveau"); ?>',
+                createAction: '<?php echo $this->baseUrl("index/nouveau/add/1"); ?>',
+                updateAction: '<?php echo $this->baseUrl("index/nouveau/up/1"); ?>',
+                deleteAction: '<?php echo $this->baseUrl("index/nouveau/del/1"); ?>'
+            },
+            fields: {
+                id: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                nom: {
+                    title: 'Nom',
+                    width: '40%'
+                },
+                prenom: {
+                    title: 'Prenom',
+                    width: '20%'
+                }
+            }
+        });
+
+        //Load person list from server
+        $('#PeopleTableContainer').jtable('load');
+
+    });
+
+</script>
